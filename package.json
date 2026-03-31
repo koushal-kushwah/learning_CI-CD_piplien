@@ -4,7 +4,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest",
+    "test": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --testTimeout=30000 --runInBand",
+    "test:debug": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --detectOpenHandles --testTimeout=30000 --runInBand",
     "start": "node index.js",
     "dev": "nodemon index.js",
     "lint": "eslint .",
@@ -46,6 +47,7 @@
     "eslint": "^10.1.0",
     "globals": "^17.4.0",
     "jest": "^30.3.0",
+    "mongodb-memory-server": "^11.0.1",
     "supertest": "^7.2.2"
   }
 }

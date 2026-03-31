@@ -1,24 +1,27 @@
-import http from 'http';
-import logger from './src/config/logger.js';
-import { connectDB } from './src/config/connectDB.js';
 import app from './app.js';
+import { connectDB } from './src/config/connectDB.js';
+import logger from './src/config/logger.js';
 
-const createServer = async () => {
+let server;
+
+const startServer = async () => {
     try {
         await connectDB();
-        // await initializeRedis();
         const PORT = process.env.PORT || 3000;
-
-        app.listen(PORT, () => {
-            logger.info(`Server is running on port ${PORT}`);
-            console.log(`Server is running on port ${PORT}`);
+        server = app.listen(PORT, () => {
+            logger.info(`Server running on port ${PORT}`);
+            console.log(`Server running on port ${PORT}`);
         });
-        // ✅ YEH CATCH BLOCK GALAT JAGAH THA — AB SAHI KIYA
     } catch (error) {
         logger.error('Failed to start server:', error);
-        console.log('Failed to start server:', error);
+        console.error('Failed to start server:', error);
         process.exit(1);
     }
 };
 
-createServer();
+// ✅ Only start when this file is executed directly (not imported)
+if (import.meta.url === `file://${process.argv[1]}`) {
+    startServer();
+}
+
+export { server, startServer };
