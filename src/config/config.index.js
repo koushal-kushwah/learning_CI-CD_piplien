@@ -13,6 +13,9 @@ export const config = {
   // REDIS_PORT: Number(process.env.REDIS_PORT),
   // REDIS_PASSWORD: process.env.REDIS_PASSWORD,
 
+  GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+  GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+
   // JWT Configuration
   JWT_SECRET: process.env.JWT_SECRET,
   EXPIN: process.env.JWT_EXPIRES_IN,
