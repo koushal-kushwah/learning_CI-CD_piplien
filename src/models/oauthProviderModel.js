@@ -1,28 +1,28 @@
 import { Schema, model } from 'mongoose';
 
 const oauthProviderSchema = new Schema({
-    userId: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true,
-        index: true
-    },
-    provider: {
-        type: String,
-        enum: ['google', 'facebook', 'github'],
-        required: true
-    },
-    providerId: {
-        type: String,
-        required: true,
-        index: true
-    },
-    providerData: {
-        type: Schema.Types.Mixed,
-        default: {}
-    }
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+    index: true,
+  },
+  provider: {
+    type: String,
+    enum: ['google', 'facebook', 'github'],
+    required: true,
+  },
+  providerId: {
+    type: String,
+    required: true,
+    index: true,
+  },
+  providerData: {
+    type: Schema.Types.Mixed,
+    default: {},
+  },
 }, {
-    timestamps: true
+  timestamps: true,
 });
 
 // Compound index for faster lookups

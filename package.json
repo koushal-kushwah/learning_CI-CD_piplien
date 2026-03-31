@@ -5,8 +5,10 @@
   "type": "module",
   "scripts": {
     "test": "echo \"No tests specified\" && exit 0",
-    "start": "nodemon index.js",
-    "dev": "nodemon index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "lint": "eslint .",
+    "build": "echo \"Build successful\""
   },
   "keywords": [],
   "author": "",
@@ -37,5 +39,10 @@
     "passport-google-oauth20": "^2.0.0",
     "path": "^0.12.7",
     "simple-node-logger": "^21.8.12"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.1.0",
+    "globals": "^17.4.0"
   }
 }
